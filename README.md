@@ -1,4 +1,4 @@
-## 🌐 [Versión desplegada en GithubPages aquí](#) 
+## 🌐 [Versión desplegada en GithubPages aquí](https://josema294.github.io/Entorno-cliente-DAW/) 
 
 ## 💻 Desarrollo Entorno Cliente - Ejercicios y Prácticas
 
@@ -48,9 +48,8 @@ Este repositorio es de acceso libre y está destinado a fines educativos. Se agr
 
 Para preguntas, comentarios o sugerencias:
 
-- 📧 Email: [TuCorreo@ejemplo.com](#)
-- 💼 LinkedIn: [TuPerfilLinkedIn](#)
-- 🌍 Sitio Web: [TuSitioWeb.com](#)
+- 💼 LinkedIn: [PerfilLinkedIn](https://www.linkedin.com/in/jose-maria-aranguren-080a70b3/)
+- 🌍 Sitio Web: [SitioWeb.com](https://jmaranguren.work/)
 
 ---
 
