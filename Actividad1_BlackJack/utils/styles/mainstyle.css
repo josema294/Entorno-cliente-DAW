@@ -1,3 +1,29 @@
 body {
     background-color: darkgreen;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr;  
+    width: 80%;
+    height: 80%;    
+    
     }
+
+#banca {
+    background-color: blue;
+    height: 40vh;
+    
+
+    
+
+}
+
+#jugador {
+    background-color: red;
+    height: 40vh;
+}
+
+#extras {
+
+    background-color: blueviolet;  
+    height: 20vh;
+}
