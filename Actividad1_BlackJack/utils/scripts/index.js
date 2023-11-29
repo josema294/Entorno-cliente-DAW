@@ -19,8 +19,29 @@ botonStart.addEventListener("click", () => starGame())
 
 function starGame() {
 
-    jugador = prompt("Por favor, introduce tu nombre:")
-    document.getElementById("nombrejugador").textContent = `Nombre del jugador: ${jugador}`
+    //Libreria para hacer bonito el prompt
+    Swal.fire({
+        title: 'Ingrese su nombre',
+        input: 'text', 
+        inputPlaceholder: 'Tu nombre aquí', 
+        showCancelButton: false, 
+        confirmButtonText: 'Enviar', 
+        inputValidator: (value) => {
+            // Validador para comprobar si el valor ingresado es válido.
+            if (!value) {
+                return '¡Escribe tu nombre para empezar a jugar!';
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log('Nombre ingresado:', result.value); 
+            jugador = result.value
+            
+            document.getElementById("nombrejugador").textContent = `Nombre del jugador: ${jugador}`
+        }
+    });
+    
+    
     creaBaraja()
     barajada = mezclarBaraja(baraja)
 
@@ -39,7 +60,7 @@ function starGame() {
         imagen.height = 300
         zonaBanca.appendChild(imagen)
         bancaPuntuacion += carta.value
-        marcadorBanca.textContent = `Banca puntos: ${bancaPuntuacion}`
+        marcadorBanca.textContent = `  Banca puntos: ${bancaPuntuacion}`
 
         if (bancaPuntuacion > 21) {
 
@@ -90,9 +111,13 @@ function pideCarta() {
 
 }
 
+const endGame = document.createElement("div")
+endGame.className = "letreros"
+
+
 function over21() {
 
-    const endGame = document.createElement("div")
+    
     const reset = document.createElement("button")
     reset.innerHTML = "resetea el jeugo"
     document.getElementById('interfaz').innerHTML = '';
@@ -112,6 +137,7 @@ function over21() {
     if (jugadorPuntuacion > 21) {
 
         endGame.textContent = "Te has pasado de 21, pierdes la ronda"
+        endGame.className = "letreros"
         interfaz.appendChild(endGame);
         interfaz.appendChild(reset);
         reset.addEventListener("click", () => {
@@ -123,7 +149,7 @@ function over21() {
 
 function plantate() {
 
-    const endGame = document.createElement("div")
+   
     const reset = document.createElement("button")
     reset.innerHTML = "resetea el jeugo"
     document.getElementById('interfaz').innerHTML = '';
