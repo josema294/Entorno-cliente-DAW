@@ -14,13 +14,12 @@ const botonera = document.getElementById("botonera")
 
 
 
-botonStart.addEventListener("click", () => starGame())
+botonStart.addEventListener("click", () => promptNombre())
 
+function promptNombre(){
 
-function starGame() {
-
-    //Libreria para hacer bonito el prompt
-    Swal.fire({
+     //Libreria para hacer bonito el prompt
+     Swal.fire({
         title: 'Ingrese su nombre',
         input: 'text', 
         inputPlaceholder: 'Tu nombre aquí', 
@@ -36,12 +35,17 @@ function starGame() {
         if (result.isConfirmed) {
             console.log('Nombre ingresado:', result.value); 
             jugador = result.value
+            starGame()
             
-            document.getElementById("nombrejugador").textContent = `Nombre del jugador: ${jugador}`
         }
     });
     
-    
+
+
+}
+function starGame() {
+   
+    document.getElementById("nombrejugador").textContent = `Nombre del jugador: ${jugador}`
     creaBaraja()
     barajada = mezclarBaraja(baraja)
 
