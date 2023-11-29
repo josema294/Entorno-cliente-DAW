@@ -16,7 +16,7 @@ body {
 .tapete {
   min-width: 600px;
   min-height: 600px;
-  margin: auto;
+  margin-top: 20px;
 }
 
 #banca {

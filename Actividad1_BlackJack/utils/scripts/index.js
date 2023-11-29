@@ -12,19 +12,17 @@ const zonajugador = document.getElementById("jugador")
 const interfaz = document.getElementById("interfaz")
 const botonera = document.getElementById("botonera")
 
-
-
 botonStart.addEventListener("click", () => promptNombre())
 
-function promptNombre(){
+function promptNombre() {
 
-     //Libreria para hacer bonito el prompt
-     Swal.fire({
+    //Libreria para hacer bonito el prompt
+    Swal.fire({
         title: 'Ingrese su nombre',
-        input: 'text', 
-        inputPlaceholder: 'Tu nombre aquí', 
-        showCancelButton: false, 
-        confirmButtonText: 'Enviar', 
+        input: 'text',
+        inputPlaceholder: 'Tu nombre aquí',
+        showCancelButton: false,
+        confirmButtonText: 'Enviar',
         inputValidator: (value) => {
             // Validador para comprobar si el valor ingresado es válido.
             if (!value) {
@@ -33,28 +31,24 @@ function promptNombre(){
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            console.log('Nombre ingresado:', result.value); 
+            console.log('Nombre ingresado:', result.value);
             jugador = result.value
             starGame()
-            
+
         }
     });
-    
-
 
 }
 function starGame() {
-   
+
     document.getElementById("nombrejugador").textContent = `Nombre del jugador: ${jugador}`
     creaBaraja()
     barajada = mezclarBaraja(baraja)
 
     //Desactivamos el boton de empezar a jugar mientras la partida este en juego.
-
     botonStart.remove()
 
     //La banca empieza a jugar
-
     while (bancaPuntuacion <= 17) {
 
         let carta = new Carta(barajada.pop())
@@ -69,22 +63,16 @@ function starGame() {
         if (bancaPuntuacion > 21) {
 
             over21()
-
         }
-
     }
 
-
     //El jugador empieza
-
     const botonPedir = document.createElement('button');
     botonPedir.addEventListener("click", () => pideCarta())
-
     botonPedir.textContent = "Pedir carta"
     botonPedir.id = "botonPedir"
     const botonPlantarse = document.createElement('button');
     botonPlantarse.addEventListener("click", () => plantate())
-
     botonPlantarse.textContent = "Plantarse"
     botonPlantarse.id = "botonPlantarse"
     botonera.appendChild(botonPedir)
@@ -109,19 +97,15 @@ function pideCarta() {
     if (jugadorPuntuacion > 21) {
 
         over21()
-
     }
-
-
 }
 
 const endGame = document.createElement("div")
 endGame.className = "letreros"
 
-
 function over21() {
 
-    
+
     const reset = document.createElement("button")
     reset.innerHTML = "resetea el jeugo"
     document.getElementById('interfaz').innerHTML = '';
@@ -153,14 +137,14 @@ function over21() {
 
 function plantate() {
 
-   
+
     const reset = document.createElement("button")
     reset.innerHTML = "resetea el jeugo"
     document.getElementById('interfaz').innerHTML = '';
 
     if (bancaPuntuacion > jugadorPuntuacion) {
 
-        endGame.textContent = "La banca te ha superado, has perdido"
+        endGame.textContent = `La banca te ha superado con ${bancaPuntuacion} putos , has perdido`
         interfaz.appendChild(endGame);
         interfaz.appendChild(reset);
         reset.addEventListener("click", () => {
@@ -171,7 +155,7 @@ function plantate() {
 
     if (bancaPuntuacion < jugadorPuntuacion) {
 
-        endGame.textContent = "Has obtenido mejor puntuacion que la banca, tu ganas!"
+        endGame.textContent = `con ${jugadorPuntuacion} superas a la banca. Ganas! `
         interfaz.appendChild(endGame);
         interfaz.appendChild(reset);
         reset.addEventListener("click", () => {
@@ -188,12 +172,8 @@ function plantate() {
         reset.addEventListener("click", () => {
             location.reload()
         })
-
     }
-
-
 }
-
 
 function creaBaraja() {
 
