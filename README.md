@@ -28,8 +28,8 @@ Los temas y tecnologías abordados en este repositorio incluyen, pero no se limi
 ## ➡️ Estructura del Repositorio
 
 1. **Índice de ejercicios:** Un archivo index.html que sirve como menú para navegar por los diferentes ejercicios y prácticas.
-2. **Temáticas:** Los ejercicios se agrupan en carpetas temáticas, cada una representando un aspecto clave del desarrollo del lado del cliente.
-3. **Proyectos Integradores:** Ejercicios de mayor envergadura que combinan múltiples tecnologías y conceptos, ubicados en sus propias carpetas.
+2. **Actividades:** Los ejercicios se agrupan en Actividades temáticas, cada una representa un pequeño proyecto realizado por trimestre para la asignatua.
+3. **Posibles proyectos extras:** Además de los proyectos principales evaluables, es posible que se incluyan proyectos de menor envergadura para tratar practicar concretos.
 
 ## 🤖 Herramientas y Tecnologías
 
