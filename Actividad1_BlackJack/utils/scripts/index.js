@@ -1,7 +1,7 @@
 const baraja = []
 let jugador = ""
 let palos = ['T', 'C', 'P', 'D']
-const boton = document.getElementById('btnstart')
+const botonStart = document.getElementById('btnstart')
 let barajada = [];
 let marcadorBanca = document.getElementById("marcadorBanca")
 let marcadorJugador = document.getElementById("marcadorJugador")
@@ -13,7 +13,8 @@ const interfaz = document.getElementById("interfaz")
 const botonera = document.getElementById("botonera")
 
 
-boton.addEventListener("click", () => starGame())
+
+botonStart.addEventListener("click", () => starGame())
 
 
 function starGame() {
@@ -23,8 +24,11 @@ function starGame() {
     creaBaraja()
     barajada = mezclarBaraja(baraja)
 
-    //La banca empieza a jugar
+    //Desactivamos el boton de empezar a jugar mientras la partida este en juego.
 
+    botonStart.remove()
+
+    //La banca empieza a jugar
 
     while (bancaPuntuacion <= 17) {
 
