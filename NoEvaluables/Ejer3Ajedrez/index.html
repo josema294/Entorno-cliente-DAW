@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejer ajedrez</title>
+
+    <style> 
+    /* Style en css para evitar crear archivo extra para el ejercicio */
+    body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+.Explicacion h1 {
+    color: #333;
+    max-width: 600px;
+    font-size: 20px;
+    margin: 20px auto;
+    line-height: 1.5;
+}
+
+#boton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+#boton:hover {
+    background-color: #0056b3;
+}
+
+.tablero {
+    font-size: 24px;
+    letter-spacing: 5px;
+    line-height: 1.5;
+    white-space: pre;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    max-width: 400px;
+}
+    </style>
+    
+</head>
+<body>
+
+
+
+<div class="Explicacion">
+   <h1> Escribe un programa que cree un string que represente un tabledo de 8 × 8,
+    usando caracteres de nueva línea para separar las líneas.
+    En cada posición del tabledo hay un espacio o un carácter "#".
+    Los caracteres deberían de formar un tablero de ajedrez.</h1>
+</div>
+
+<button id="boton">EjecutaScript</button>
+
+<div id ="tablero" class="tablero" >
+
+
+</div>
+
+
+    
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+<script src="./scriptAjedrez.js"></script>
+</body>
+</html>
