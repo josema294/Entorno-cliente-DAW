@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(247, 188, 116);
+
+}
+
+.titulo {
+    background-color: aquamarine;
+}
+
+.secciones {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(111, 140, 255);
+
+}
+
+.Local{
+    background-color: chocolate;
+}
+
+.session{
+
+    background-color: green;
+
+}
+
+.cookies{
+    background-color: crimson;
+}
+
+.actuales{
+
+    background-color: rgb(204, 255, 181);
+
+}
