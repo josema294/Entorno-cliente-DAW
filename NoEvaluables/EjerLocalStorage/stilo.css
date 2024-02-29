@@ -1,35 +1,63 @@
 body {
-    background-color: rgb(247, 188, 116);
+    background-color: rgb(229, 229, 229);
+    display: flex;
+    flex-direction: column;
+    color: azure;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    
+        
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    
 
 }
 
 .titulo {
-    background-color: aquamarine;
+
+    color: black;
+        
 }
 
 .secciones {
     display: flex;
     flex-direction: row;
-    background-color: rgb(111, 140, 255);
+    justify-content: center;
+    
+   
 
 }
 
 .Local{
     background-color: chocolate;
+    padding: 10%;
 }
 
 .session{
 
     background-color: green;
+    padding: 10%;
 
 }
 
 .cookies{
     background-color: crimson;
+    padding: 10%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
 }
 
 .actuales{
 
     background-color: rgb(204, 255, 181);
+    
+    
 
 }

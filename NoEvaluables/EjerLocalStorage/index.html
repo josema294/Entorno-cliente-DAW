@@ -1,138 +1,120 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio LocalStorage</title>
-    <link rel="stylesheet" href="./stilo.css">
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Ejercicio LocalStorage</title>
+      <link rel="stylesheet" href="./stilo.css" />
+    </head>
+    <body>
+      <!-- Realizar una aplicación web al igual que la imagen que se adjunta. El funcionamiento será el siguiente:
+      - Al agregar elementos dentro de cada columna tendrá que guardar en el almacenamiento indicado con el par clave - valor que se ponga en el formulario
+      - En el caso de agregar un objeto se guardará en formato json
+      - A la hora de borrar se tendrá que seleccionar una clave, la cual se deberá borrar del almacenamiento correspondiente.
+      Nada más arrancar la aplicación deberá mostrar en la parte inferior las claves que tiene guardadas
+      web_storage.pdf -->
 
-    <!-- Realizar una aplicación web al igual que la imagen que se adjunta. El funcionamiento será el siguiente:
-    - Al agregar elementos dentro de cada columna tendrá que guardar en el almacenamiento indicado con el par clave - valor que se ponga en el formulario
-    - En el caso de agregar un objeto se guardará en formato json
-    - A la hora de borrar se tendrá que seleccionar una clave, la cual se deberá borrar del almacenamiento correspondiente.
-    Nada más arrancar la aplicación deberá mostrar en la parte inferior las claves que tiene guardadas
-    web_storage.pdf -->
+      <header class="titulo"><h1>WebStorage</h1></header>
 
+      <section class="container">
+        <section class="secciones">
+          <div class="Local">
+            <h2>Local storage</h2>
+            <form class="formIndividualLS">
+              <label><h3>Individual</h3></label>
+              <label for="inputClaveLS">Clave </label>
+              <input id="inputClaveLS" type="text" />
+              <label for="inputValorLS">Valor</label>
+              <input id="inputValorLS" type="text" />
+              <button id="submitLS" type="submit">Agregar par</button>
+            </form>
 
-<header class="titulo"> <h1>WebStorage</h1></header>
+            <form class="formObjetolLS">
+              <label><h3>Objeto</h3></label>
+              <label for="nombreLS">Nombre </label>
+              <input id="nombreLS" type="text" />
+              <label for="apellidoLS">Apellido</label>
+              <input id="apellidoLS" type="text" />
+              <label for="telefonoLS">Telefono</label>
+              <input id="telefonoLS" type="text" />
+              <button id="submitObjLS" type="submitLS">Agregar objeto</button>
+            </form>
 
-<section class="secciones">
-
-    <div class="Local">
-
-        <h2>Local storage</h2>
-        <form class="formIndividualLS">
-            <label><h3>Individual</h3></label>
-            <label for="inputClaveLS">Clave </label>
-            <input id="inputClaveLS" type="text"> 
-            <label for ="inputValorLS">Valor</label>
-            <input id="inputValorLS" type="text">
-            <button type="submitLS">Agregar par</button> 
-            
-        </form>
-
-        <form class="formObjetolLS">
-            <label><h3>Objeto</h3></label>
-            <label for="nombreLS">Nombre </label>
-            <input id="nombreLS" type="text"> 
-            <label for ="apellidoLS">Apellido</label>
-            <input id="apellidoLS" type="text">
-            <label for ="telefonoLS">Telefono</label>
-            <input id="telefonoLS" type="text"> 
-            <button type="submitLS">Agregar objeto</button> 
-            
-        </form>
-
-        <form class="formBorraLS">
-            <label><h3>Borrar</h3></label>
-            <label for="nombreLS">Selecciona una clave </label>
-            <select  id="nombreLS">
+            <form class="formBorraLS">
+              <label><h3>Borrar</h3></label>
+              <label for="nombreLS">Selecciona una clave </label>
+              <select id="nombreLS">
                 <option>prueba1</option>
-            </select>
-            
-        </form>
-    </div>
-    
-    
-    <div class="session">
+              </select>
+            </form>
+          </div>
 
-        <h2>Session storage</h2>
-        <form class="formIndividualSS">
-            <label><h3>Individual</h3></label>
-            <label for="inputClaveSS">Clave </label>
-            <input id="inputClaveSS" type="text"> 
-            <label for ="inputValorSS">Valor</label>
-            <input id="inputValorSS" type="text">
-            <button type="submitLSS">Agregar par</button> 
-            
-        </form>
+          <div class="session">
+            <h2>Session storage</h2>
+            <form class="formIndividualSS">
+              <label><h3>Individual</h3></label>
+              <label for="inputClaveSS">Clave </label>
+              <input id="inputClaveSS" type="text" />
+              <label for="inputValorSS">Valor</label>
+              <input id="inputValorSS" type="text" />
+              <button type="submitLSS">Agregar par</button>
+            </form>
 
-        <form class="formObjetolSS">
-            <label><h3>Objeto</h3></label>
-            <label for="nombreSS">Nombre </label>
-            <input id="nombreSS" type="text"> 
-            <label for ="apellidoSS">Apellido</label>
-            <input id="apellidoSS" type="text">
-            <label for ="telefonoSS">Telefono</label>
-            <input id="telefonoSS" type="text"> 
-            <button type="submitSS">Agregar objeto</button> 
-            
-        </form>
+            <form class="formObjetolSS">
+              <label><h3>Objeto</h3></label>
+              <label for="nombreSS">Nombre </label>
+              <input id="nombreSS" type="text" />
+              <label for="apellidoSS">Apellido</label>
+              <input id="apellidoSS" type="text" />
+              <label for="telefonoSS">Telefono</label>
+              <input id="telefonoSS" type="text" />
+              <button type="submitSS">Agregar objeto</button>
+            </form>
 
-        <form class="formBorraSS">
-            <label><h3>Borrar</h3></label>
-            <label for="nombreSS">Selecciona una clave </label>
-            <select  id="nombreSS">
+            <form class="formBorraSS">
+              <label><h3>Borrar</h3></label>
+              <label for="nombreSS">Selecciona una clave </label>
+              <select id="nombreSS">
                 <option>prueba1</option>
-            </select>
-            
-        </form>
-    </div>
-    
-    
-    <div class="cookies">
-        
-        <h2>Cookies</h2>
-        <form class="formIndividualC">
-            <label><h3>Individual</h3></label>
-            <label for="inputClaveC">Clave </label>
-            <input id="inputClaveC" type="text"> 
-            <label for ="inputValorC">Valor</label>
-            <input id="inputValorC" type="text">
-            <label for ="inputExpiraC">Expiracion</label>
-            <input id="inputValorC" type="text">
-            <button type="submitC">Agregar par</button> 
-            
-        </form>
+              </select>
+            </form>
+          </div>
 
-    </div>
+          <div class="cookies">
+            <h2>Cookies</h2>
+            <form class="formIndividualC">
+              <label><h3>Individual</h3></label>
+              <label for="inputClaveC">Clave </label>
+              <input id="inputClaveC" type="text" />
+              <label for="inputValorC">Valor</label>
+              <input id="inputValorC" type="text" />
+              <label for="inputExpiraC">Expiracion</label>
+              <input id="inputValorC" type="text" />
+              <button type="submitC">Agregar par</button>
+            </form>
+          </div>
+        </section>
 
-</section>
+        <section class="actuales">
+          <h2>Actuales</h2>
 
-<section class="actuales">
-
-    <h2>Actuales</h2>
-
-    <div class="actualesLS">
-        <input type="text" id="infoLS1" readonly size="20">
-        <input type="text" id="infoLS2" readonly size="20">
-        <input type="text" id="infoLS3" readonly size="20">
-    </div>
-    <div class="actualesSS">
-        <input type="text" id="infoSS1" readonly size="20">
-        <input type="text" id="infoSS2" readonly size="20">
-        <input type="text" id="infoSS3" readonly size="20">
-    </div>
-    <div class="actualesC">
-        <input type="text" id="infoC1" readonly size="20">
-        <input type="text" id="infoC2" readonly size="20">
-        <input type="text" id="infoC3" readonly size="20">
-    </div>
-
-</section>
-
-    
-</body>
-</html>
+          <div class="actualesLS">
+            <input type="text" id="infoLS1" readonly size="20" />
+            <input type="text" id="infoSS1" readonly size="20" />
+            <input type="text" id="infoC1" readonly size="20" />
+          </div>
+          <div class="actualesSS">
+            <input type="text" id="infoLS2" readonly size="20" />
+            <input type="text" id="infoSS2" readonly size="20" />
+            <input type="text" id="infoC2" readonly size="20" />
+          </div>
+          <div class="actualesC">
+            <input type="text" id="infoLS3" readonly size="20" />
+            <input type="text" id="infoSS3" readonly size="20" />
+            <input type="text" id="infoC3" readonly size="20" />
+          </div>
+        </section>
+      </section>
+    </body>
+    <script src="./script.js"></script>
+  </html>
