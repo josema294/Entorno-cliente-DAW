@@ -1,0 +1,9 @@
+.card-img-top {
+    height: 200px; /* Ajusta la altura como necesites */
+    object-fit: cover; /* Esto asegura que la imagen cubra el área sin perder sus proporciones */
+  }
+
+  .card-body {
+    min-height: 250px; /* Ajusta según sea necesario para tu contenido */
+  }
+  
