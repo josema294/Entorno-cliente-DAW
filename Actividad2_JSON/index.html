@@ -20,21 +20,23 @@
         <div class="card mt-3">
           <div class="card-body">
             <h5 class="card-title">Filtros de Búsqueda</h5>
-            <form>
-              <div class="mb-3">
-                <label for="precioMinimo" class="form-label">Precio Mínimo</label>
-                <input type="number" class="form-control" id="precioMinimo" placeholder="Precio Mínimo">
-              </div>
-              <div class="mb-3">
-                <label for="categoria" class="form-label">Categoría</label>
-                <input type="text" class="form-control" id="categoria" placeholder="Categoría">
-              </div>
-              <div class="mb-3">
-                <label for="marca" class="form-label">Marca</label>
-                <input type="text" class="form-control" id="marca" placeholder="Marca">
-              </div>
-              <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
-            </form>
+          
+            <div class="mb-3">
+              <label for="precioMinimo" id="precioMin" class="form-label">Precio Mínimo</label>
+              <input type="number" class="form-control" id="precioMinimo" placeholder="Precio Mínimo">
+            </div>
+            <div class="mb-3">
+              <label for="categoria" id="categoria" class="form-label">Categoría</label>
+              <select type="" class="form-control" id="categoriasInput" >
+                <option></option>
+            </div>
+            <div class="mb-3">
+              <label for="marca" id="marca" class="form-label">Marca</label>
+              <select type="" class="form-control" id="marcasInput" >
+                <option ></option>
+            </div>
+            <button type="submit" id="botonFiltro" class="btn btn-primary" >Aplicar Filtro</button>
+            
           </div>
         </div>
       </div>
@@ -55,7 +57,7 @@
         <div class="row">
           <!-- Aquí se mostrarán los productos del carrito -->
         </div>
-        <button class="btn btn-primary">Comprar</button>
+        <button id="botonComprar"class="btn btn-primary">Comprar</button>
       </aside>
     </div>
   </main>
