@@ -6,77 +6,86 @@ let categoriasInput = document.querySelector("#categoriasInput");
 let marcaInput = document.querySelector("#marcasInput");
 let url = "https://dummyjson.com/products";
 let dummyJson;
-let arrayCateogorias = [];
+let arrayCategorias = [];
 let arrayMarcas = [];
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Página cargada");
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    console.log("Página cargada");
+    dummyJson = await cargaJson(url); // Espera a que la promesa se resuelva
 
-  // cargamos el json
-  cargaJson(url)
-    .then((json) => {
-      dummyJson = json;
-
-      //Cargamos array categorias
-      dummyJson.products.forEach((product) => {
-        if (!arrayCateogorias.includes(product.category)) {
-          arrayCateogorias.push(product.category);
-        }
-      });
-
-      //cargamos array marcas
-      dummyJson.products.forEach((product) => {
-        if (!arrayMarcas.includes(product.brand)) {
-          arrayMarcas.push(product.brand);
-        }
-      });
-
-      // Ahora, llenamos el select de categorías aquí, asegurándonos de que se haga después de que arrayCategorias esté lleno
-      arrayCateogorias.forEach((categoria) => {
-        let option = new Option(categoria, categoria.toLowerCase());
-        categoriasInput.add(option);
-      });
-
-      // lo mismo con la select de marcas
-      arrayMarcas.forEach((marca) => {
-        let option = new Option(marca, marca.toLowerCase());
-        marcaInput.add(option);
-      });
-    })
-    .catch((error) => {
-      console.error("Error al cargar el JSON:", error);
+    // Cargamos arrays de categorías y marcas
+    dummyJson.products.forEach((product) => {
+      if (!arrayCategorias.includes(product.category)) {
+        arrayCategorias.push(product.category);
+      }
+      if (!arrayMarcas.includes(product.brand)) {
+        arrayMarcas.push(product.brand);
+      }
     });
+
+    // Llenar selects de categorías y marcas
+    arrayCategorias.forEach((categoria) => {
+      let option = new Option(categoria, categoria);
+      categoriasInput.add(option);
+    });
+
+    arrayMarcas.forEach((marca) => {
+      let option = new Option(marca, marca);
+      marcaInput.add(option);
+    });
+  } catch (error) {
+    console.error("Error al cargar el JSON:", error);
+  }
 });
 
-//Recoger datos del filtro
+// Recoger datos del filtro
 botonFiltro.addEventListener("click", (e) => {
-  //Con esto hacemos que el precio minimo tenga que ser un numero y ademas un valor negativo equivale a un filtro de 0 euros
   let precioMin =
-    !isNaN(parseFloat(precioMinInput.value)) && precioMinInput.value >= 0
-      ? precioMinInput.value
+    parseFloat(precioMinInput.value) >= 0
+      ? parseFloat(precioMinInput.value)
       : 0;
-  console.log(precioMin);
-
-  //Cargamos las opciones de categorias con los datos del json:
-
   let categoria = categoriasInput.value;
-  console.log(categoria);
+  let brand = marcaInput.value;
 
-  let brand =  marcaInput.value
-  console.log(brand);
+  console.log(precioMin, categoria, brand);
 
-  //Cargamos los productos que cumplas los filtros
+  // Cargamos los productos que cumplen los filtros
+  let filtrados = dummyJson.products.filter((product) => {
+    return (
+      product.price >= precioMin &&
+      (categoria === "sin especificar" || product.category === categoria) && // "" representa "todas las categorías"
+      (brand === "sin especificar" || product.brand === brand)
+    ); // "" representa "todas las marcas"
+  });
 
-  let filtrados = []
+  console.log(filtrados); // Mostrar productos filtrados
 
-  dummyJson.forEach((product) =>{
+  //Iteramos sobre productos filtrados para mostrarlos
 
-    if( (dummyJson.price>= precioMin) && (dummyJson.category === categoria ) && (dummyJson.brand === brand ) ){
-      filtrados.push[product]
-    }
+  const contenedorProductos = document.querySelector(
+    "#productosFiltrados .row"
+  );
+  contenedorProductos.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevos productos
 
-    console.log(filtrados);
+  filtrados.forEach((producto) => {
+    const col = document.createElement("div");
+    col.className = "col-md-4 mb-4"; // Crea una columna para cada tarjeta para ajustarse a la estructura de 3 columnas
 
-  })
+    const card = `
+        <div class="card">
+          <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
+          <div class="card-body">
+            <h5 class="card-title">${producto.title}</h5>
+            <p class="card-text">${producto.description}</p>
+            <p class="card-text"><small class="text-muted">Precio: $${producto.price}</small></p>
+            <p class="card-text"><small class="text-muted">Marca: ${producto.brand}</small></p>
+            <p class="card-text"><small class="text-muted">Categoría: ${producto.category}</small></p>
+          </div>
+        </div>
+      `;
 
+    col.innerHTML = card; // Añade la tarjeta a la columna
+    contenedorProductos.appendChild(col); // Añade la columna al contenedor de productos
+  });
 });
