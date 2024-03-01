@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Índice de Ejercicios</title>
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
   <div class="evaluables">
@@ -18,7 +20,8 @@
       </tr>
       <tr>
         <td><a href="./Actividad1_BlackJack/index.html">Actividad 1 BlackJack</a></td>
-        <td> <p>Realizar una web con JS que simule el funcionamiento de un blackjack. Para ello, la
+        <td>
+          <p>Realizar una web con JS que simule el funcionamiento de un blackjack. Para ello, la
             página tendrá el siguiente comportamiento:
             1. Nada más arrancar pedirá mediante un prompt el nombre del jugador
             2. Una vez introducido empezará a jugar la banca, sacando cada una de las cartas
@@ -29,7 +32,7 @@
             a. Pedir carta: sacará una carta a la mano del jugador y le sumará un punto
             b. Plantarse: Terminará el juego y se decidirá el ganador</p>
 
-            <p>
+          <p>
             Las cosas que hay que tener en cuenta en el juego son las siguientes:
             - La banca pide cartas de forma automática hasta que tenga un mínimo de 17
             puntos. En este caso pasará el turno al jugador automáticamente
@@ -42,27 +45,56 @@
             o 2-10: Valor numérico
             o J, Q, K: Valor de 11
             Se valorará el uso de métodos y objetos
-            </p>
+          </p>
         </td>
         <td><img src="./Actividad1_BlackJack/utils/images/1D.png" width="200" height="200"></td>
 
       </tr>
 
       <tr>
-          <td><a href="./Actividad2_JSON/index.html">Actividad1 Trimestre 2</a></td>
-          <td>En costruccion</td>
-          <td></td>
+        <td><a href="./Actividad2_JSON/index.html">Actividad 2 Tienda dummyjson</a></td>
+        <td>
+          <h4>Realiza una página web en JS que permita mostrar una serie de productos cargados
+            externamente desde un JSON. La url de carga será la siguiente:
+            https://dummyjson.com/products</h4>
+          <p>Para el maquetado de la web tendrá que tener las siguientes secciones:</p>
+          <p>
+            - Parte superior donde se podrán seleccionar los filtros de búsqueda: precio mínimo,
+            categoría y marca, además de un botón para poder aplicar el filtro.<br>
+            - Parte central dividido en dos partes:<br>
+            Parte resultados: donde se mostrarán tantas cartas como productos del api
+            cumplan el filtro de búsqueda. En las cartas deberá de mostrarse además de la
+            imagen, el precio y la categoría, un botón con el texto añadir a carrito. En el caso
+            de pulsarlo, el producto se añadirá al carrito y se actualizará la lista de la parte
+            derecha.<br>
+            Parte carrito: donde se mostrarán todos los productos que se van añadido al
+            producto. Al final de la lista aparecerá un botón comprar donde al pulsarlo
+            aparecerá un mensaje de confirmación con el siguiente mensaje: vas a realizar
+            una compra por valor de XXX. ¿Estás seguro? En el caso de púlsar aceptar vaciará
+            el carrito
+          </p>
+
+          <p>
+            Además de todas las características mencionadas, se valorará el uso de librerías externas para
+            el uso de animaciones y carga de diálogos:<br>
+            - https://sweetalert2.github.io<br>
+            - https://animate.style
+          </p>
+        </td>
+        <td>
+          <img src="./Actividad2_JSON/img/Screenshot 2024-03-02 001649.png" width="200" height="200">
+         </td>
       </tr>
 
       <tr>
-        <td><a href="./Actividad3 Trimestre 3/index.html">Actividad1 Trimestre 3</a></td>
+        <td><img href="./Actividad3 Trimestre 3/index.html">Actividad1 Trimestre 3></td>
         <td> Todavia no iniciada </td>
         <td></td>
       </tr>
-     
+
     </table>
   </div>
-        
+
   <div class="ejercicios">
     <h3>Actividades Complementarias, No Evaluables</h3>
     <table>
@@ -73,8 +105,10 @@
       </tr>
       <tr>
         <td><a href="./NoEvaluables/Ejer1Piramide/index.html">EjercicioPiramide</a></td>
-        <td>Piramide: Escriba un script que pedido por consola (prompt un número), represente por consola la siguiente figura con el número de filas introducido en el prompt.
-          En el caso de no introducir un número o que sea menor que 0 saltará un aviso por consola y dará la posibilidad de repetir el proceso:  </td>
+        <td>Piramide: Escriba un script que pedido por consola (prompt un número), represente por consola la siguiente
+          figura con el número de filas introducido en el prompt.
+          En el caso de no introducir un número o que sea menor que 0 saltará un aviso por consola y dará la posibilidad
+          de repetir el proceso: </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
 
@@ -84,16 +118,17 @@
           - Para números divisibles por 3, imprime "Fizz" en lugar del número
           - Para los números divisibles por 5 (y no 3), imprime "Buzz" en su lugar.
           Cuando tengas eso funcionando, modifica tu programa para imprimir " FizzBuzz",
-           para números que sean divisibles entre 3 y 5 (y aún imprimir "Fizz" o "Buzz" para números divisibles por solo uno de ellos).:  </td>
+          para números que sean divisibles entre 3 y 5 (y aún imprimir "Fizz" o "Buzz" para números divisibles por solo
+          uno de ellos).: </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
 
       <tr>
         <td><a href="./NoEvaluables/Ejer3Ajedrez/index.html">Tablero Ajedrez</a></td>
         <td>Escribe un programa que cree un string que represente un tabledo de 8 × 8,
-           usando caracteres de nueva línea para separar las líneas.
-            En cada posición del tabledo hay un espacio o un carácter "#".
-           Los caracteres deberían de formar un tablero de ajedrez.  </td>
+          usando caracteres de nueva línea para separar las líneas.
+          En cada posición del tabledo hay un espacio o un carácter "#".
+          Los caracteres deberían de formar un tablero de ajedrez. </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
 
@@ -101,28 +136,32 @@
         <td><a href="./NoEvaluables/Ejer4Fechas/index.html">Fecha cumpleaños</a></td>
         <td>Comparación de fechas:Realiza un programa que pida por prompt el día,
           mes y año de tu cumpleaños.
-          Indica cuantos días han pasado desde tu cumpleaños hasta el día de hoy  </td>
+          Indica cuantos días han pasado desde tu cumpleaños hasta el día de hoy </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
 
       <tr>
         <td><a href="./NoEvaluables/Ejer5Opera/index.html">Operaciones</a></td>
-        <td> Pedir dos números por teclado y mostrar en una alerta todos las operaciones posibles para dichos números (suma, resta, multiplicación y división). Adicionalmente el programa hará lo siguiente:
+        <td> Pedir dos números por teclado y mostrar en una alerta todos las operaciones posibles para dichos números
+          (suma, resta, multiplicación y división). Adicionalmente el programa hará lo siguiente:
           - si se introduce números menores que 0 o letras que salte una alerta indicando el error y el programa parará
-          - tras mostrar todas las operaciones se pedirá confirmación al usuario para que indique si quiere continuar realizando operaciones: en caso positivo el programa volverá a empezar. En caso negativo el programa parará
-          - si se detecta que alguna de las operaciones es negativa el programa parará tras realizar todas las operaciones de los números </td>
+          - tras mostrar todas las operaciones se pedirá confirmación al usuario para que indique si quiere continuar
+          realizando operaciones: en caso positivo el programa volverá a empezar. En caso negativo el programa parará
+          - si se detecta que alguna de las operaciones es negativa el programa parará tras realizar todas las
+          operaciones de los números </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
 
       <tr>
         <td><a href="./NoEvaluables/Ejer6Frases/index.html">Frases</a></td>
-        <td> Pedir al usuario que introduzca una frase por teclado. Tras meter la frase se ejecutará la siguiente funcionalidad:
+        <td> Pedir al usuario que introduzca una frase por teclado. Tras meter la frase se ejecutará la siguiente
+          funcionalidad:
           - Si la frase tiene menos de 10 letras, se volverá a pedir nuevamente
           - Si tiene más de 10 letras aparecerá una alerta con la siguiente información:
-              - El dato introducido tiene:
-              - X letras
-              - X palabras
-              - X frases
+          - El dato introducido tiene:
+          - X letras
+          - X palabras
+          - X frases
         </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
@@ -130,28 +169,31 @@
       <tr>
         <td><a href="./NoEvaluables/Ejer6Frases/index.html">Operaciones Recurrentes</a></td>
         <td> Pedir al usuario que introduzca por teclado dos números y mediante funciones mostrar
-           el resultado de todas las operaciones en un cuadro de alerta
+          el resultado de todas las operaciones en un cuadro de alerta
         </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
 
-      
+
       <tr>
         <td><a href="./NoEvaluables/EjerLocalStorage/index.html">Ejercicio Local Storage</a></td>
-        <td> Realizar una aplicación web al igual que la <a href="./NoEvaluables/EjerLocalStorage/web_storage.pdf"> imagen que se adjunta.</a> El funcionamiento será el siguiente:
+        <td> Realizar una aplicación web al igual que la <a href="./NoEvaluables/EjerLocalStorage/web_storage.pdf">
+            imagen que se adjunta.</a> El funcionamiento será el siguiente:
 
-          <p>- Al agregar elementos dentro de cada columna tendrá que guardar en el almacenamiento indicado con el par clave - valor que se ponga en el formulario
-          - En el caso de agregar un objeto se guardará en formato json
-          - A la hora de borrar se tendrá que seleccionar una clave, la cual se deberá borrar del almacenamiento correspondiente.</p>
+          <p>- Al agregar elementos dentro de cada columna tendrá que guardar en el almacenamiento indicado con el par
+            clave - valor que se ponga en el formulario
+            - En el caso de agregar un objeto se guardará en formato json
+            - A la hora de borrar se tendrá que seleccionar una clave, la cual se deberá borrar del almacenamiento
+            correspondiente.</p>
           Nada más arrancar la aplicación deberá mostrar en la parte inferior las claves que tiene guardadas
         </td>
         <!-- <td><img src="./" width="200" height="200"></td> -->
       </tr>
 
-     
-    </table>
-  </div> 
-  
-</body>
-</html>
 
+    </table>
+  </div>
+
+</body>
+
+</html>

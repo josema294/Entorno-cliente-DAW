@@ -50,42 +50,109 @@ botonFiltro.addEventListener("click", (e) => {
 
   console.log(precioMin, categoria, brand);
 
-  // Cargamos los productos que cumplen los filtros
+  
   let filtrados = dummyJson.products.filter((product) => {
     return (
       product.price >= precioMin &&
-      (categoria === "sin especificar" || product.category === categoria) && // "" representa "todas las categorías"
+      (categoria === "sin especificar" || product.category === categoria) && 
       (brand === "sin especificar" || product.brand === brand)
-    ); // "" representa "todas las marcas"
+    ); 
   });
 
-  console.log(filtrados); // Mostrar productos filtrados
-
-  //Iteramos sobre productos filtrados para mostrarlos
+  console.log(filtrados); 
 
   const contenedorProductos = document.querySelector(
     "#productosFiltrados .row"
   );
-  contenedorProductos.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevos productos
+  contenedorProductos.innerHTML = ""; 
 
   filtrados.forEach((producto) => {
     const col = document.createElement("div");
-    col.className = "col-md-4 mb-4"; // Crea una columna para cada tarjeta para ajustarse a la estructura de 3 columnas
+    col.className = "col-md-4 mb-4";
 
     const card = `
-        <div class="card">
-          <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
-          <div class="card-body">
-            <h5 class="card-title">${producto.title}</h5>
-            <p class="card-text">${producto.description}</p>
-            <p class="card-text"><small class="text-muted">Precio: $${producto.price}</small></p>
-            <p class="card-text"><small class="text-muted">Marca: ${producto.brand}</small></p>
-            <p class="card-text"><small class="text-muted">Categoría: ${producto.category}</small></p>
-          </div>
-        </div>
-      `;
+    <div class="card h-100">
+      <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">${producto.title}</h5>
+        <p class="card-text">${producto.description}</p>
+        <p class="card-text"><small class="text-muted">Precio: $${producto.price}</small></p>
+        <p class="card-text"><small class="text-muted">Marca: ${producto.brand}</small></p>
+        <p class="card-text"><small class="text-muted">Categoría: ${producto.category}</small></p>
+        <button class="btn btn-primary mt-auto agregar-carrito" data-product-id="${producto.id}">Agregar al Carrito</button>
+      </div>
+    </div>
+  `;
+  
 
-    col.innerHTML = card; // Añade la tarjeta a la columna
-    contenedorProductos.appendChild(col); // Añade la columna al contenedor de productos
+    col.innerHTML = card; 
+    contenedorProductos.appendChild(col); 
+
   });
+
+
+document.querySelectorAll(".agregar-carrito").forEach((button) => {
+button.addEventListener("click", function () {
+const productId = this.getAttribute("data-product-id");
+agregarAlCarrito(productId);
+
+});
+});
+
+
+});
+
+
+
+function agregarAlCarrito(productId) {
+  const producto = dummyJson.products.find(product => product.id.toString() === productId);
+
+  if (producto) {
+    const contenedorCarrito = document.querySelector('#carrito');
+    const productoCarrito = document.createElement('div');
+    productoCarrito.classList.add('producto-carrito', 'mb-3');
+    productoCarrito.setAttribute('data-product-id', producto.id); 
+    productoCarrito.innerHTML = `
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">${producto.title}</h5>
+          <p class="card-text">Precio: $${producto.price}</p>
+          <button class="btn btn-danger btn-sm quitar-producto" data-product-id="${producto.id}">Quitar</button>
+        </div>
+      </div>
+    `;
+
+      
+    const botonQuitar = productoCarrito.querySelector('.quitar-producto');
+    botonQuitar.addEventListener('click', () => {
+      removerDelCarrito(productId);
+});
+
+    contenedorCarrito.appendChild(productoCarrito);
+  }
+}
+
+
+function removerDelCarrito(productId) {
+  const contenedorCarrito = document.querySelector('#carrito');
+  const productoParaEliminar = contenedorCarrito.querySelector(`[data-product-id="${productId}"]`);
+  if (productoParaEliminar) {
+    contenedorCarrito.removeChild(productoParaEliminar);
+  }
+}
+
+
+document.querySelector("#botonComprar").addEventListener("click", () => {
+  const productosEnCarrito = document.querySelectorAll(".producto-carrito");
+  let precioTotal = 0;
+  
+  productosEnCarrito.forEach(producto => {
+    const precio = parseFloat(producto.getAttribute("data-precio")); 
+  });
+  
+
+  alert(`El precio total es: $${precioTotal}`);
+  
+  const contenedorCarrito = document.querySelector('#carrito');
+  contenedorCarrito.innerHTML = '';
 });
