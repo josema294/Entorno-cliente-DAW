@@ -97,6 +97,7 @@ botonFiltro.addEventListener("click", (e) => {
   });
 });
 
+
 function agregarAlCarrito(productId) {
   
   const producto = dummyJson.products.find(
@@ -149,15 +150,39 @@ function removerDelCarrito(productId) {
 }
 
 document.querySelector("#botonComprar").addEventListener("click", () => {
-  const productosEnCarrito = document.querySelectorAll(".producto-carrito");
-  let precioTotal = 0;
+  // const productosEnCarrito = document.querySelectorAll(".producto-carrito");
+  let precioCompra = importeCarrito;
 
-  productosEnCarrito.forEach((producto) => {
-    const precio = parseFloat(producto.getAttribute("data-precio"));
+  // productosEnCarrito.forEach((producto) => {
+  //   const precio = parseFloat(producto.getAttribute("data-precio"));
+  // });
+
+  Swal.fire({
+    title: `Confirmar compra`,
+    text:`Se realizara la compra por un importe total de ${precioCompra} que sera cargado en tu tarjeta bancarea`,
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Comprar",
+    denyButtonText: `cancelar y borrar carrito`
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire("Compra realizada", `Ha realizado la compra por un importe total de ${precioCompra}`, "success");
+
+      vaciarCarrito()
+
+    } else if (result.isDenied) {
+      Swal.fire("Compra no realizada", "Compra no realizada y carrito vaciado", "info");
+      vaciarCarrito()
+
+    }
   });
+});
 
-  alert(`El precio total es: $${precioTotal}`);
+function vaciarCarrito() {
 
   const contenedorCarrito = document.querySelector("#carrito");
   contenedorCarrito.innerHTML = "";
-});
+  importeCarrito=0
+  
+}
