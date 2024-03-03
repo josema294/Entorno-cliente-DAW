@@ -110,13 +110,14 @@ function agregarAlCarrito(productId) {
   if (producto) {
     const contenedorCarrito = document.querySelector("#carrito");
     const productoCarrito = document.createElement("div");
-    productoCarrito.classList.add("producto-carrito", "mb-3");
+    productoCarrito.classList.add("producto-carrito", "mb-1");
     productoCarrito.setAttribute("data-product-id", producto.id);
     productoCarrito.innerHTML = `
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">${producto.title}</h5>
           <p class="card-text">Precio: $${producto.price}</p>
+          <p><img src="${producto.thumbnail}" style="width: 80px;"> </img> </p>
           <button class="btn btn-danger btn-sm quitar-producto" data-product-id="${producto.id}">Quitar</button>
         </div>
       </div>

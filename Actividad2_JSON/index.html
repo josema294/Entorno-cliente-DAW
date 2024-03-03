@@ -16,72 +16,58 @@
 </head>
 
 <body>
-
-
   <main>
-
-
-    <section class="container-fluid">
+    <!-- Sección de Filtros -->
+    <section class="container mt-3">
       <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card mt-3">
+        <div class="col-lg-6">
+          <div class="card">
             <div class="card-body">
               <h5 class="card-title">Filtros de Búsqueda</h5>
-
               <div class="mb-3">
-                <label for="precioMinimo" id="precioMin" class="form-label">Precio Mínimo</label>
+                <label for="precioMinimo" class="form-label">Precio Mínimo</label>
                 <input type="number" class="form-control" id="precioMinimo" placeholder="Precio Mínimo">
               </div>
               <div class="mb-3">
                 <label for="categoriasInput" class="form-label">Categoría</label>
-                <select type="" class="form-control" id="categoriasInput">
+                <select class="form-control" id="categoriasInput">
                   <option>sin especificar</option>
                 </select>
               </div>
               <div class="mb-3">
                 <label for="marcasInput" class="form-label">Marca</label>
-                <select type="" class="form-control" id="marcasInput">
+                <select class="form-control" id="marcasInput">
                   <option>sin especificar</option>
                 </select>
               </div>
-
               <button type="submit" id="botonFiltro" class="btn btn-primary">Aplicar Filtro</button>
-
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section  class="container-fluid mt-5 " >
+    <!-- Sección de Productos y Carrito -->
+    <section class="container mt-5">
       <div class="row">
-        <article class="col-md-10" >
-          
-          <section id="productosFiltrados"  class="row justify-content-center " >
-          <!-- Productos filtrados -->
-            
-          </section>
+        <article class="col-lg-10">
+          <div id="productosFiltrados" class="row justify-content-center">
+            <!-- Productos filtrados se mostrarán aquí -->
+          </div>
         </article>
 
-        <aside class="col-md-2 bg-secondary">
-          <button id="botonComprar" class="btn btn-primary">Comprar</button>
-          <button id="botonVaciaCarrito" class="btn btn-secondary">Vaciar</button>
-          <h4>Carrito de Compras</h4>
-          <div id="carrito" >
-            
-            <!-- Productos agregados al carrito  -->
-            
+        <aside class="col-lg-2">
+          <div class="p-3">
+            <button id="botonComprar" class="btn btn-primary mb-2">Comprar</button>
+            <button id="botonVaciaCarrito" class="btn btn-secondary mb-2">Vaciar</button>
+            <h4>Carrito de Compras</h4>
+            <div id="carrito">
+              <!-- Productos agregados al carrito se mostrarán aquí -->
+            </div>
           </div>
-          
         </aside>
-
       </div>
     </section>
-
-
-    
-
-
   </main>
 
   <!-- Bootstrap Bundle with Popper -->
@@ -90,3 +76,6 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   <!-- Custom JS -->
   <script type="module" src="./script.js"></script>
+</body>
+
+</html>
