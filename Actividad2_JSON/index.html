@@ -16,62 +16,69 @@
 </head>
 
 <body>
-  <section class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card mt-3">
-          <div class="card-body">
-            <h5 class="card-title">Filtros de Búsqueda</h5>
 
-            <div class="mb-3">
-              <label for="precioMinimo" id="precioMin" class="form-label">Precio Mínimo</label>
-              <input type="number" class="form-control" id="precioMinimo" placeholder="Precio Mínimo">
-            </div>
-            <div class="mb-3">
-              <label for="categoriasInput" class="form-label">Categoría</label>
-              <select type="" class="form-control" id="categoriasInput">
-                <option>sin especificar</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="marcasInput" class="form-label">Marca</label>
-              <select type="" class="form-control" id="marcasInput">
-                <option>sin especificar</option>
-              </select>
-            </div>
 
-            <button type="submit" id="botonFiltro" class="btn btn-primary">Aplicar Filtro</button>
+  <main>
 
+
+    <section class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title">Filtros de Búsqueda</h5>
+
+              <div class="mb-3">
+                <label for="precioMinimo" id="precioMin" class="form-label">Precio Mínimo</label>
+                <input type="number" class="form-control" id="precioMinimo" placeholder="Precio Mínimo">
+              </div>
+              <div class="mb-3">
+                <label for="categoriasInput" class="form-label">Categoría</label>
+                <select type="" class="form-control" id="categoriasInput">
+                  <option>sin especificar</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="marcasInput" class="form-label">Marca</label>
+                <select type="" class="form-control" id="marcasInput">
+                  <option>sin especificar</option>
+                </select>
+              </div>
+
+              <button type="submit" id="botonFiltro" class="btn btn-primary">Aplicar Filtro</button>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div id="productosFiltrados" class="container mt-4">
-    <div class="row">
-      tarjetas con productos
-    </div>
-  </div>
+    <section  class="container-fluid mt-5 " >
+      <div class="row">
+        <article class="col-md-10" >
+          
+          <section id="productosFiltrados"  class="row justify-content-center " >
+          <!-- Productos filtrados -->
+            
+          </section>
+        </article>
 
-  <main class="container-fluid ">
-    <div class="row justify-content-center">
-      <section class="col-md-8">
+        <aside class="col-md-2">
+          <div id="carrito" >
+            <h4>Carrito de Compras</h4>
+            <!-- Productos agregados al carrito  -->
+            carrito
+          </div>
+          <button id="botonComprar" class="btn btn-primary">Comprar</button>
+        </aside>
 
-        <div class="row">
+      </div>
+    </section>
 
-        </div>
-      </section>
 
-      <aside class="col-md-4">
-        <div id="carrito" class="row">
-          <h4>Carrito de Compras</h4>
-          <!-- Los productos agregados al carrito se mostrarán aquí -->
-        </div>
-        <button id="botonComprar" class="btn btn-primary">Comprar</button>
-      </aside>
-      
-    </div>
+    
+
+
   </main>
 
   <!-- Bootstrap Bundle with Popper -->

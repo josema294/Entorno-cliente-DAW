@@ -62,7 +62,7 @@ botonFiltro.addEventListener("click", (e) => {
   console.log(filtrados); 
 
   const contenedorProductos = document.querySelector(
-    "#productosFiltrados .row"
+    "#productosFiltrados"
   );
   contenedorProductos.innerHTML = ""; 
 
