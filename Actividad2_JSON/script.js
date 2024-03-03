@@ -8,7 +8,7 @@ let url = "https://dummyjson.com/products";
 let dummyJson;
 let arrayCategorias = [];
 let arrayMarcas = [];
-let importeCarrito = 0
+let importeCarrito = 0;
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -70,7 +70,7 @@ botonFiltro.addEventListener("click", (e) => {
 
     const card = `
     <div class="card h-100">
-      <img src="${producto.thumbnail}" class="card-img-top" alt="${producto.title}">
+      <img src="${producto.thumbnail}" class="card-img-top animate__animated animate__bounceInLeft" alt="${producto.title}">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">${producto.title}</h5>
         <p class="card-text">${producto.description}</p>
@@ -92,20 +92,20 @@ botonFiltro.addEventListener("click", (e) => {
     boton.addEventListener("click", (e) => {
       let card = e.target.closest(".agregar-carrito");
       let productId = card.getAttribute("data-product-id");
-      agregarAlCarrito(productId)
+      agregarAlCarrito(productId);
     });
   });
 });
 
-
 function agregarAlCarrito(productId) {
-  
   const producto = dummyJson.products.find(
     (product) => product.id.toString() === productId
   );
 
-  importeCarrito += producto.price
-  console.log(`El valor del carrito aumenta en: ${producto.price} el total ahora es ${importeCarrito}`)
+  importeCarrito += producto.price;
+  console.log(
+    `El valor del carrito aumenta en: ${producto.price} el total ahora es ${importeCarrito}`
+  );
 
   if (producto) {
     const contenedorCarrito = document.querySelector("#carrito");
@@ -142,10 +142,11 @@ function removerDelCarrito(productId) {
   );
 
   if (productoParaEliminar) {
-    importeCarrito -= producto.price
-    console.log(`Importe total se reduce en: ${producto.price} el valor del carrito ahora es ${importeCarrito}`)
+    importeCarrito -= producto.price;
+    console.log(
+      `Importe total se reduce en: ${producto.price} el valor del carrito ahora es ${importeCarrito}`
+    );
     contenedorCarrito.removeChild(productoParaEliminar);
-    
   }
 }
 
@@ -159,30 +160,52 @@ document.querySelector("#botonComprar").addEventListener("click", () => {
 
   Swal.fire({
     title: `Confirmar compra`,
-    text:`Se realizara la compra por un importe total de ${precioCompra} que sera cargado en tu tarjeta bancarea`,
+    text: `Se realizara la compra por un importe total de ${precioCompra} que sera cargado en tu tarjeta bancarea`,
     showDenyButton: true,
     showCancelButton: true,
     confirmButtonText: "Comprar",
-    denyButtonText: `cancelar y borrar carrito`
+    denyButtonText: `cancelar y borrar carrito`,
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-      Swal.fire("Compra realizada", `Ha realizado la compra por un importe total de ${precioCompra}`, "success");
+      Swal.fire(
+        "Compra realizada",
+        `Ha realizado la compra por un importe total de ${precioCompra}`,
+        "success"
+      );
 
-      vaciarCarrito()
-
+      vaciarCarrito();
     } else if (result.isDenied) {
-      Swal.fire("Compra no realizada", "Compra no realizada y carrito vaciado", "info");
-      vaciarCarrito()
+      Swal.fire(
+        "Compra no realizada",
+        "Compra no realizada y carrito vaciado",
+        "info"
+      );
+      vaciarCarrito();
+    }
+  });
+});
 
+document.querySelector("#botonVaciaCarrito").addEventListener("click", () => {
+  Swal.fire({
+    title: `Vaciar carrito`,
+    text: `Se vaciara el carrito y se descartaran los objetos elegidos`,
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: "Vaciar",
+    denyButtonText: `cancelar y borrar carrito`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire("Carrito vaciado, siga comprando");
+
+      vaciarCarrito();
     }
   });
 });
 
 function vaciarCarrito() {
-
   const contenedorCarrito = document.querySelector("#carrito");
   contenedorCarrito.innerHTML = "";
-  importeCarrito=0
-  
+  importeCarrito = 0;
 }
