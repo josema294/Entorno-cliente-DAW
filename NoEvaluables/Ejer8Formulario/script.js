@@ -23,6 +23,8 @@ const spanDNI = document.querySelector("#validaDNI");
 
 const arraySpans = document.querySelectorAll(".validator")
 const arrayInputs = document.querySelectorAll(".form-control")
+/**@type {Map} */
+const arrayUsuario = {}
 
 resultadoBoton.addEventListener("click", (e) => {
   let validacionExitosa = true;
@@ -78,15 +80,24 @@ resultadoBoton.addEventListener("click", (e) => {
 
   if (validacionExitosa) {
     console.log("todo exitoso");
+
+    let arrayUsuario = {
+      nombre: nombreIn.value,
+      apellido: apellidoIn.value,
+      telefono: telefonoIn.value,
+      DNI: dniIn.value
+    }
    
     arraySpans.forEach(element => {
         element.textContent=""
     });
 
     arrayInputs.forEach(element =>{
-        element.className = element.className.replace(bg-light, "")
+        element.className = element.className.replace("bg-light", "")
 
     })
+
+    agregaTabla(arrayUsuario)
 
 
   } else {
@@ -134,4 +145,19 @@ function validaDNI(dni) {
 
   validacion = true;
   return validacion;
+}
+
+
+
+function agregaTabla(usuario) {
+  const tablaUsuarios = document.querySelector("#tablaUsuarios")
+  const plantilla = `                <tr>
+  <td>${usuario.nombre}</td>
+  <td>${usuario.apellido}</td>
+  <td>${usuario.telefono}</td>
+  <td>${usuario.DNI}</td>
+</tr>`
+
+tablaUsuarios.insertAdjacentHTML ('beforeend',plantilla)
+  
 }
