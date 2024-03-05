@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Datos con Bootstrap 5</title>
+    <link rel="stylesheet" href="./style.css">
     <!-- Bootstrap CSS v5.2.1 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -18,21 +19,25 @@
                 <form id="dataForm">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required pattern="[A-Za-z ]+">
+                        <input type="text" class="form-control" id="nombre" name="nombre" >
+                        <span class = "validator"id="validaNombre"></span>
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" required pattern="[A-Za-z ]+">
+                        <input type="text" class="form-control" id="apellido" name="apellido" >
+                        <span class = "validator"id="validaApellido"></span>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono:</label>
-                        <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[0-9]{9}">
+                        <input type="tel" class="form-control" id="telefono" name="telefono" >
+                        <span class = "validator"id="validaTelefono"></span>
                     </div>
                     <div class="mb-3">
                         <label for="dni" class="form-label">DNI:</label>
-                        <input type="text" class="form-control" id="dni" name="dni" required pattern="[0-9]{7}[A-Za-z]">
+                        <input type="text" class="form-control" id="dni" name="dni" >
+                        <span class = "validator"id="validaDNI"></span>
                     </div>
-                    <button id="enviar" type="button" class="btn btn-primary">Enviar</button>
+                    <button id="enviar" type="submit" class="btn btn-primary">Enviar</button>
                 </form>
                 <div id="resultado" class="mt-3"></div>
             </div>
@@ -40,7 +45,6 @@
     </div>
 
     <script src="./script.js"  type="module"></script>
-    <script src="funciones.js"  type="module"></script>
-      
+    
 </body>
 </html>

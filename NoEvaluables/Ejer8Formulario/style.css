@@ -1,0 +1,9 @@
+.validator {
+    color: red;
+}
+
+.rejected {
+
+    background-color: gray;
+    color: brown;
+}
