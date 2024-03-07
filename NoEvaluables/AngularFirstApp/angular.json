@@ -3,17 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "inicioangular": {
+    "AngularFirstApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
           "skipTests": true
         },
         "@schematics/angular:component": {
-          "skipTests": true
+          "skipTests": true,
+          "standalone": false
         },
         "@schematics/angular:directive": {
-          "skipTests": true
+          "skipTests": true,
+          "standalone": false
         },
         "@schematics/angular:guard": {
           "skipTests": true
@@ -22,7 +24,8 @@
           "skipTests": true
         },
         "@schematics/angular:pipe": {
-          "skipTests": true
+          "skipTests": true,
+          "standalone": false
         },
         "@schematics/angular:resolver": {
           "skipTests": true
@@ -38,7 +41,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/inicioangular",
+            "outputPath": "dist/angular-first-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -87,10 +90,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "inicioangular:build:production"
+              "buildTarget": "AngularFirstApp:build:production"
             },
             "development": {
-              "buildTarget": "inicioangular:build:development"
+              "buildTarget": "AngularFirstApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +101,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "inicioangular:build"
+            "buildTarget": "AngularFirstApp:build"
           }
         },
         "test": {
