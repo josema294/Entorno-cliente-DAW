@@ -7,6 +7,9 @@ import { Usuario, UsuarioImpl } from '../../model/Usuario';
   styleUrl: './formulario.component.css',
 })
 export class FormularioComponent {
+
+  listaUsuarios: UsuarioImpl []= []
+
   nombre: string = '';
   apellido: string = '';
   telefono: string = '';
@@ -19,6 +22,8 @@ export class FormularioComponent {
       parseInt(this.telefono),
       this.dni
     );
+
+    this.listaUsuarios.push(user)
 
     console.log(user.toString());
 
