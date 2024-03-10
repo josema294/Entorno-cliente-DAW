@@ -7,23 +7,26 @@ import { Usuario, UsuarioImpl } from '../../model/Usuario';
   styleUrl: './formulario.component.css',
 })
 export class FormularioComponent {
-  listaUsuarios: UsuarioImpl[] = [];
+  nombre: string = '';
+  apellido: string = '';
+  telefono: string = '';
+  dni: string = '';
 
-  
-  agregarUsuario(nombre:string, apellido:string , telefono: string, dni:string ){
-    const nuevoUsuario = new UsuarioImpl(nombre, apellido, parseInt(telefono), dni);
-    this.listaUsuarios.push(nuevoUsuario);
-  
-  
-    this.listaUsuarios.forEach((usuario) => {
-      console.log(usuario.toString());
-      
-      
-    })
-  ;
-  
+  agregarUsuario() {
+    const user: UsuarioImpl = new UsuarioImpl(
+      this.nombre,
+      this.apellido,
+      parseInt(this.telefono),
+      this.dni
+    );
+
+    console.log(user.toString());
+
+      this.nombre = ""
+      this.apellido= ""
+      this.telefono= 
+      this.dni= ""
+    
+
   }
-
-
-  
 }
