@@ -1,11 +1,41 @@
 <h1>Listado de libros de Stephen King</h1>
 
-<ul>
-<li>Prueba</li>
-@for (item of arrayLibros; track $index) {
 
-    <li>{{item}}</li>
 
-}
+<ol>
+    @for (item of usable; track $index) {
 
-</ul>
+        <li>{{item.Title}}</li>
+    }
+    
+
+</ol>
+
+<!-- <table>
+
+    <thead>
+        <th>ISBN</th>
+        <th>Titulo</th>
+        <th>Año</th>
+        <th>Paginas</th>
+    </thead>
+
+    <tbody>
+
+        @for (item of usable; track $index) {
+
+            <tr>
+                <td>{{item.ISBN}}</td>
+                <td>{{item.Title}}</td>
+                <td>{{item.Year}}</td>
+                <td>{{item.Pages}}</td>
+            </tr>
+
+        }
+
+
+    </tbody>
+
+</table> -->
+
+

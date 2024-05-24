@@ -1,40 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from './services/api-service.service'
+import { BookService } from './services/api-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  data: any = "";
+  apiInfo: any = '';
+  arrayLibros: string[] = [];
+  usable: any[] = [];
+  libro: any = '';
+  jsonInfo?: JSON;
 
-  arrayLibros: string [] = [];
-
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService) {}
 
   ngOnInit() {
-    this.bookService.getData().subscribe(data => {
-      this.data = data;
+    this.bookService.getData().subscribe((data) => {
+      this.apiInfo = data;
 
-      // console.log(data);
+      this.arrayLibros = this.apiInfo.data;
 
-          // Verifica si data tiene una propiedad 'data' que es un array
-          if (data && Array.isArray(data.data)) {
-            this.arrayLibros = data.data.map((book: any) => book.Title);
-
-            this.arrayLibros
-            
-          } else {
-            console.error('La estructura de datos no es la esperada:', data);
-          }
-        }, error => {
-          console.error('Error al obtener los datos de la API:', error);
-        
-      
+      this.usable = this.arrayLibros;
     });
-
-
-
   }
 }
