@@ -58,3 +58,67 @@
   </div>
 </div>
 
+
+<!-- Ahora aremos lo mismo pero con el binding que es mas sencillo. -->
+
+
+
+<div class="container">
+  <div class="row justify-content-center align-items-center g-2 mb-4">
+    <div class="container mt-5">
+      <h2>Formulario</h2>
+      <form (ngSubmit)="agregarUsuarioModule()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Introduce tu nombre" [(ngModel)]="nombre" name="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="edad" class="form-label">Edad</label>
+          <input type="number" class="form-control" id="edad" placeholder="Introduce tu edad" [(ngModel)]="edad" name="edad">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Introduce tu email" [(ngModel)]="email" name="email">
+        </div>
+        <div class="mb-3">
+          <label for="sexo" class="form-label">Sexo</label>
+          <select class="form-select" id="sexo" [(ngModel)]="sexo" name="sexo">
+            <option selected value="">Selecciona tu sexo</option>
+            <option value="1">Masculino</option>
+            <option value="2">Femenino</option>
+            <option value="3">Otro</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="comentarios" class="form-label">Comentarios</label>
+          <textarea class="form-control" id="comentarios" rows="3" placeholder="Introduce tus comentarios" [(ngModel)]="comentarios" name="comentarios"></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Opción</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion" id="opcion1" value="1" [(ngModel)]="opcion" checked>
+            <label class="form-check-label" for="opcion1">
+              Opción 1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="opcion" id="opcion2" value="2" [(ngModel)]="opcion">
+            <label class="form-check-label" for="opcion2">
+              Opción 2
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+
+    <div *ngIf="arrayUsuarios && arrayUsuarios.length > 0" class="mt-4">
+      <h3>Usuarios</h3>
+      <div *ngFor="let item of arrayUsuarios; let i = index">
+        <p>{{i + 1}}. Nombre: {{item.nombre}}, Edad: {{item.edad}}, Email: {{item.email}}, Sexo: {{item.sexo}}, Comentarios: {{item.comentarios}}, Opción: {{item.opcion}}</p>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
